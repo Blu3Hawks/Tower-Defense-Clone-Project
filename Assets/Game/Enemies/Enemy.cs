@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
     public int slowTimerCounter = 0;
     //movements
     [SerializeField] private Transform endPoint;
-    [SerializeField] private Transform startPoint;
     public NavMeshAgent navMeshAgent;
     //private info and setups
     private Rigidbody rb;
@@ -54,7 +53,6 @@ public class Enemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemy = GetComponent<Enemy>();
         resources = FindObjectOfType<Resources>();
-        startPoint = GameObject.Find("StartPoint").transform;
         SetDestination();
         currentHealth = maxHealth;
         SettingRewards();
