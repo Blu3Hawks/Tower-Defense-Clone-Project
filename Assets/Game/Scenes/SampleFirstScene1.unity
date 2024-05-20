@@ -1329,7 +1329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301013886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5587016, y: 0.000000038424318, z: -0.000000025884416, w: 0.82936877}
+  m_LocalRotation: {x: 0.5587016, y: -0.0000000384243, z: 0.000000025884404, w: 0.82936877}
   m_LocalPosition: {x: 28.28, y: 41.6, z: -5.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3637,7 +3637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5587016, y: 0.000000038424318, z: -0.000000025884416, w: 0.82936877}
+  m_LocalRotation: {x: 0.5587016, y: -0.0000000384243, z: 0.000000025884404, w: 0.82936877}
   m_LocalPosition: {x: 5.84, y: 0.0099983215, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5023,8 +5023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configurations:
   - waves:
-    - enemyPrefab: {fileID: 9017774602777759889, guid: 14f271c3135539a4c98f253b0812f7c7, type: 3}
-      amountOfEnemies: 1
+    - enemyPrefab: {fileID: 9017774602777759889, guid: 56b085f547980394baaf51e9925c5696, type: 3}
+      amountOfEnemies: 10
       spawnTimer: 2
       timeBetweenSpawns: 0
     timeBetweenWaves: 0

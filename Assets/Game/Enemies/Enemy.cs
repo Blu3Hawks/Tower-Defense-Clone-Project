@@ -76,6 +76,7 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void Update()
     {
+        currentSpeed = navMeshAgent.speed;
         if (navMeshAgent.enabled == true)
         {
             navMeshAgent.destination = endPoint.position;
