@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5273580773345399018}
-  - component: {fileID: 7637656234048433060}
+  - component: {fileID: 9163126262740758680}
   - component: {fileID: 846057753418310044}
   m_Layer: 0
-  m_Name: FirstTowerPrefab
+  m_Name: CannonTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 2773756594241963378}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7637656234048433060
+--- !u!114 &9163126262740758680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,40 +43,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3709327195377916346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9befecc949fa2324b90303d7e0c86d1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d34b209fe2b06f48a39619c30eef00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   goldCost: 75
   gemCost: 3
-  goldUpgradeCost: 50
-  gemUpgradeCost: 2
-  towerWeapon: {fileID: 2773756597626379922}
-  range: 50
-  attackRate: 1
-  damageAmountPerParticle: 1
-  towerToUpgrade: {fileID: 8742646552333093650, guid: f0faf1241da34964f8fac849782a4649, type: 3}
-  aoeRadius: 10
-  slowEffect: 0.6
-  effectDuration: 2
-  freezeDuration: 0
-  damageOverTimeDuration: 3
-  tickDuration: 1
-  pushBackDuration: 0.4
-  pushBackMagnitude: 30
-  stormPrefab: {fileID: 8965423363384488604, guid: 73c639da81ce50f4698eecea23b498e8, type: 3}
-  stormDuration: 10
-  stormTickDuration: 0.5
-  stormTickDamage: 0.2
-  stormPullStrength: 20
-  delayDuration: 1
-  explosionAoeRadius: 50
-  maxHealthPercent: 8
-  chainRange: 80
-  chainCount: 6
-  increasedChainDamage: 1.1
+  goldUpgradeCost: 0
+  gemUpgradeCost: 0
+  towerWeapon: {fileID: 0}
+  range: 0
+  attackRate: 0
+  damageAmountPerParticle: 3
+  towerToUpgrade: {fileID: 0}
+  sellPercentage: 0.7
   hyperElectricBuffed: 0
   plasmaSurgeResonator: 0
-  towerType: 1
+  towerType: 2
+  radius: 0
 --- !u!65 &846057753418310044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -182,11 +165,6 @@ Transform:
 --- !u!4 &2773756597462023606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013869490946, guid: b5ceca2fab4f06f49aa235f4f428275a, type: 3}
-  m_PrefabInstance: {fileID: 2769829288824217268}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2773756597626379922 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4000014011301926, guid: b5ceca2fab4f06f49aa235f4f428275a, type: 3}
   m_PrefabInstance: {fileID: 2769829288824217268}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8751066617760796399

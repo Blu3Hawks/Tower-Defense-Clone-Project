@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BerserkerRaider : Enemy
+public class BerserkerRaider : Enemy // an enemy that will move faster the less health he has
 {
-    [SerializeField] float movespeedModifierPercentage;
+    [SerializeField] float movespeedModifierPercentage; 
     float baseSpeed;
 
     protected override void Start()

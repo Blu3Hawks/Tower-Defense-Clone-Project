@@ -34,7 +34,7 @@ public class DataPersistenceManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
 
-        if(disableDataPersistence)
+        if (disableDataPersistence)
         {
             Debug.LogWarning("Data Persistnce Manager is disabled !");
         }
@@ -76,13 +76,13 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
-        if(disableDataPersistence)
+        if (disableDataPersistence)
         {
             return;
         }
         this.gameData = dataHandler.Load(selectedProfileId);
-        
-        if(this.gameData == null && initializeDataIfNull)
+
+        if (this.gameData == null && initializeDataIfNull)
         {
             NewGame();
         }
@@ -102,7 +102,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        if(disableDataPersistence)
+        if (disableDataPersistence)
         {
             return;
         }

@@ -15,13 +15,13 @@ public class NaniteSwarmLauncherTower : Tower
     public IEnumerator DamageOverTime(Enemy enemy, float damagePerTick)
     {
         float amountOfTicks = damageOverTimeDuration / tickDuration;
-        if(amountOfTicks <= 0)
+        if (amountOfTicks <= 0)
         {
             yield break;
         }
         for (int i = 0; i < amountOfTicks; i++)
         {
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.ProcessHit(damagePerTick);
                 yield return new WaitForSeconds(tickDuration);

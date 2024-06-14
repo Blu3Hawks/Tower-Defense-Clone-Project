@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwarmShip : Enemy
+public class SwarmShip : Enemy // upon death will spawn smaller enemies
 {
     [Header("Duplicator stuff")]
     // on destroy instantiate X enemies on the position of death

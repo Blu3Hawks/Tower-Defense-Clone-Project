@@ -15,15 +15,17 @@ public class Tower : MonoBehaviour
     //target locator and aim
     [Header("Aiming and range")]
     [SerializeField] protected Transform towerWeapon;
+    [SerializeField] protected Transform towerCannon;
     [SerializeField] public float range;
-    private ParticleSystem[] attackParticles;
     protected Enemy closestTarget = null;
     //firing
     [Header("Firing")]
     public float attackRate;
+    private float reloadTimer;
     public float damageAmountPerParticle = 3f;
     //upgrading our tower
     [SerializeField] public Tower towerToUpgrade;
+    [SerializeField] GameObject attackBullet;
     //for selling
     [SerializeField] float sellPercentage = 0.7f;
     //tower types
@@ -65,7 +67,7 @@ public class Tower : MonoBehaviour
 
     void Awake()
     {
-        attackParticles = GetComponentsInChildren<ParticleSystem>();
+        reloadTimer = attackRate;
     }
     protected virtual void Update()
     {
@@ -91,23 +93,13 @@ public class Tower : MonoBehaviour
     //aiming tower's weapons
     public virtual void AimTower()
     {
-        Attack(false);
-
         if (closestTarget != null)
         {
             towerWeapon.LookAt(closestTarget.transform);
             float targetDistance = Vector3.Distance(transform.position, closestTarget.transform.position);
             if (closestTarget != null && targetDistance < range)
             {
-                Attack(true);
-                foreach (ParticleSystem ps in attackParticles)
-                {
-                    ps.transform.LookAt(closestTarget.transform.position);
-                }
-            }
-            else
-            {
-                Attack(false);
+                Attacking();
             }
         }
     }
@@ -128,16 +120,20 @@ public class Tower : MonoBehaviour
         }
         return enemiesInAoe;
     }
-    //attack method
-    public virtual void Attack(bool isActive)
+
+    public virtual void Attacking() // NEEDS TO BE FIXED
     {
-        foreach (ParticleSystem ps in attackParticles)
+        if (reloadTimer > 0)
         {
-            var emissionModule = ps.emission;
-            //setting activate
-            emissionModule.enabled = isActive;
-            //setting attack rate
-            emissionModule.rateOverTime = attackRate;
+            reloadTimer -= Time.deltaTime;
+            Debug.Log("We are still preparing our bullet sir");
+        }
+        if (reloadTimer <= 0)
+        {
+            GameObject bullet = Instantiate(attackBullet, towerCannon.transform.position, Quaternion.identity, this.transform);
+            Debug.Log("Bullet is out!");
+            reloadTimer = attackRate;
+
         }
     }
 

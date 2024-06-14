@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class WarpStalker : Enemy
+public class WarpStalker : Enemy // will teleport further ahead every x amount of time
 {
     private float timer = 0f;
     [SerializeField] private float teleportTimer;
