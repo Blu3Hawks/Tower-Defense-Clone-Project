@@ -12,18 +12,27 @@ public class AegisTitan : Enemy // this enemy will have a shield that will have 
 {
     public int startingShieldAmount;
     public float rangeOfShield;
-    private int currentShieldAmount;
+    [SerializeField] private float shieldReloadTimer;
 
-    private GameObject sphere;
+    Shield shield;
 
     protected override void Start()
     {
         base.Start();
-        currentShieldAmount = startingShieldAmount;
+        shield = GetComponentInChildren<Shield>();
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, rangeOfShield);
     }
+
+    public IEnumerator ResettingShield()
+    {
+        shield.enabled = false;
+        yield return new WaitForSeconds(shieldReloadTimer);
+        shield.shieldAmount = startingShieldAmount;
+        shield.enabled = true;
+    }
+
 }

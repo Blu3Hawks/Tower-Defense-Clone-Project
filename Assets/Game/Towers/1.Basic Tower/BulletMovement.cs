@@ -8,6 +8,7 @@ public class BulletMovement : MonoBehaviour
 
     private Tower tower;
     private Enemy targetEnemy;
+    private Enemy currentEnemyTarget;
 
     private Rigidbody rb;
 
@@ -29,19 +30,23 @@ public class BulletMovement : MonoBehaviour
     {
         if (targetEnemy != null)
         {
-            Vector3 dir = targetEnemy.transform.position - rb.transform.position;
+            Vector3 dir = currentEnemyTarget.transform.position - rb.transform.position;
             transform.Translate(dir.normalized * bulletSpeed, Space.World);
         }
     }
 
     private void TargetNearestEnemy()
     {
-        targetEnemy = tower.FindClosestTarget();
-
         if (targetEnemy == null)
         {
-            Destroy(this.gameObject);
+            targetEnemy = tower.FindClosestTarget();
+            currentEnemyTarget = targetEnemy;
         }
+        if (currentEnemyTarget == null)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)

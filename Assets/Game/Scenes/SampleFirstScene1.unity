@@ -5027,10 +5027,6 @@ MonoBehaviour:
       amountOfEnemies: 1
       spawnTimer: 1
       timeBetweenSpawns: 0
-    - enemyPrefab: {fileID: 9017774602777759889, guid: d330d0157b5970d409e910f99b832c29, type: 3}
-      amountOfEnemies: 2
-      spawnTimer: 1
-      timeBetweenSpawns: 0
     timeBetweenWaves: 0
 --- !u!1 &1466760798
 GameObject:

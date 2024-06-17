@@ -111,28 +111,6 @@ public class Enemy : MonoBehaviour // the very first and basic enemy script
         }
     }
 
-    /*private void HandleCannonEffects2(Tower tower, float damageTaken, GameObject other)
-    {
-        ProcessHit(damageTaken);
-        //Finds the hit point at the enemy
-        ParticleSystem particleSystem = other.GetComponent<ParticleSystem>();
-        List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
-        particleSystem.GetCollisionEvents(gameObject, collisionEvents);
-        Vector3 collisionHitPoint = collisionEvents[0].intersection;
-
-        //Finds all of the enemies in the radius around he hit enemy
-        Collider[] hitColliders = Physics.OverlapSphere(collisionHitPoint, tower.aoeRadius);
-        foreach (Collider collider in hitColliders)
-        {
-            Enemy enemyInRange = collider.GetComponent<Enemy>();
-            if (enemyInRange != null && enemyInRange != this)
-            {
-                enemyInRange.ProcessHit(damageTaken);
-            }
-        }
-    }
-   */
-
     public virtual void ProcessHit(float damageTaken)
     {
         currentHealth -= damageTaken; // - armor; // if the enemy has 3 armor it will reduce 3 damage on every turn. Can also be with percentages.
