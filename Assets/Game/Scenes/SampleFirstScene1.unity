@@ -1329,7 +1329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301013886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5587016, y: 0.000000038424318, z: -0.000000025884416, w: 0.82936877}
+  m_LocalRotation: {x: 0.5587016, y: -0.0000000384243, z: 0.000000025884404, w: 0.82936877}
   m_LocalPosition: {x: 28.28, y: 41.6, z: -5.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2802,7 +2802,7 @@ MonoBehaviour:
         m_MethodName: SetNewTower
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 4835066869715920803, guid: ba920edf4c0cd6348bbeef701b4250d9, type: 3}
+          m_ObjectArgument: {fileID: -7828230898759572988, guid: b9fabf941c1cd534c9b9bcf23289c932, type: 3}
           m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3637,7 +3637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5587016, y: 0.000000038424318, z: -0.000000025884416, w: 0.82936877}
+  m_LocalRotation: {x: 0.5587016, y: -0.0000000384243, z: 0.000000025884404, w: 0.82936877}
   m_LocalPosition: {x: 5.84, y: 0.0099983215, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

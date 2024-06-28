@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// THERE IS A BIG ISSUE HERE NEED TO FIGURE OUT HOW TO DESTROY ONLY A SPECIFIC PARTICLE AND NOT THE WHOLE PARTICLE SYSTEM
-
 public class AegisTitan : Enemy // this enemy will have a shield that will have a area of shield. This area will be a sphere that will
                                 //block any incoming damage. It will look for particle systems, or damage types or any projectiles, and will see if its parent
                                 //is a tower. If it is then the particle system will be destroyed and the shield amount will get lower. When it will get to 0

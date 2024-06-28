@@ -72,25 +72,13 @@ MonoBehaviour:
   goldUpgradeCost: 0
   gemUpgradeCost: 0
   towerWeapon: {fileID: 2773756597626379922}
+  towerCannon: {fileID: 2773756597462023606}
   range: 50
   attackRate: 1
   damageAmountPerParticle: 1
   towerToUpgrade: {fileID: 0}
-  aoeRadius: 0
-  freezeDuration: 0
-  pushBackDuration: 0
-  pushBackMagnitude: 0
-  stormPrefab: {fileID: 0}
-  stormDuration: 0
-  stormTickDuration: 0
-  stormTickDamage: 0
-  stormPullStrength: 0
-  delayDuration: 0
-  explosionAoeRadius: 0
-  maxHealthPercent: 0
-  chainRange: 0
-  chainCount: 0
-  increasedChainDamage: 0
+  attackBullet: {fileID: 7304628534903013559, guid: 277a8ef5cd380cf4dbb7821909b299a0, type: 3}
+  sellPercentage: 0.7
   hyperElectricBuffed: 0
   plasmaSurgeResonator: 0
   towerType: 4
