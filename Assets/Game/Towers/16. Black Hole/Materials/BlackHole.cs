@@ -16,10 +16,12 @@ public class BlackHole : MonoBehaviour
 
     //properties for when destroying enemies
     [SerializeField] int maxDestroyedEnemes;
+    [SerializeField] private int amountOfEnemiesToDestroy;
     [SerializeField] float decreasedBlackHoleSize;
     void Start()
     {
         SettingColliders();
+        amountOfEnemiesToDestroy = maxDestroyedEnemes;
     }
 
     private void Update()
@@ -56,8 +58,10 @@ public class BlackHole : MonoBehaviour
         if (enemy != null)
         {
             NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
-            if (agent != null) enemy.navMeshAgent.enabled = false;
-
+            if (agent != null)
+            {
+                enemy.navMeshAgent.enabled = false;
+            }
             enemiesInPullRadius.Add(enemy);
             Debug.Log(enemy.name + " has been added to the enemies in range list");
         }
@@ -74,7 +78,7 @@ public class BlackHole : MonoBehaviour
                 agent.enabled = true;
                 agent.SetDestination(GameObject.Find("EndPoint").transform.position);
             }
-                enemiesInPullRadius.Remove(enemy);
+            enemiesInPullRadius.Remove(enemy);
             Debug.Log("The following enemy has left the range list: " + enemy.name);
         }
     }
@@ -94,28 +98,34 @@ public class BlackHole : MonoBehaviour
         if (distance < destructionRadius)
         {
             Destroy(enemy.gameObject);
-            maxDestroyedEnemes--;
+            amountOfEnemiesToDestroy--;
             OnDestroyingEnemies();
         }
     }
 
     private void OnDestroyingEnemies()
     {
-        if(maxDestroyedEnemes > 0)
+        if (amountOfEnemiesToDestroy > 0)
         {
             this.transform.localScale *= (1f - decreasedBlackHoleSize);
             pullStrength *= (1f - decreasedBlackHoleSize);
             destructionRadius *= (1f - decreasedBlackHoleSize);
         }
-        if(maxDestroyedEnemes <= 0)
+        if (amountOfEnemiesToDestroy <= 0)
         {
-            Destroy(this.gameObject);
             Debug.Log("This black hole as eaten enough");
-            foreach( Enemy enemy in enemiesInPullRadius)
-            {
-                enemy.navMeshAgent.enabled = true;
-            }
+            ClearEnemyList(); 
+            Destroy(this.gameObject);
         }
+    }
+
+    private void ClearEnemyList()
+    {
+        foreach (Enemy enemy in enemiesInPullRadius)
+        {
+            enemy.navMeshAgent.enabled = true;
+        }
+        enemiesInPullRadius.Clear();
     }
 
     private void OnDrawGizmos()

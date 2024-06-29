@@ -37,6 +37,7 @@ public class ElectricNullifier : Enemy //will be nullifying nearby towers for x 
 
     private void IdentifyNearbyTowers()
     {
+        towersInRange.Clear();
         Collider[] nearbyTowers = Physics.OverlapSphere(transform.position, rangeOfEffect);
         foreach (Collider collider in nearbyTowers)
         {
@@ -45,26 +46,30 @@ public class ElectricNullifier : Enemy //will be nullifying nearby towers for x 
             if (tower != null)
             {
                 towersInRange.Add(tower);
-                StartCoroutine(ShuttingDownNearbyTowers());
             }
         }
+        StartCoroutine(ShuttingDownNearbyTowers());
     }
 
     private IEnumerator ShuttingDownNearbyTowers()
     {
-        if (towersInRange.Count > 0)
+        foreach (Tower tower in towersInRange)
         {
-            foreach (Tower tower in towersInRange)
+            if (tower != null)
             {
-                if (tower != null)
-                {
-                    tower.enabled = false;
-                    yield return new WaitForSeconds(disablingTowersTimer);
-                    tower.enabled = true;
-                    towersInRange.Clear();
-                }
+                tower.enabled = false;
             }
         }
+        yield return new WaitForSeconds(disablingTowersTimer);
+
+        foreach (Tower tower in towersInRange)
+        {
+            if (tower != null)
+            {
+                tower.enabled = true;
+            }
+        }
+        towersInRange.Clear();
     }
 
     private void OnDestroy()
@@ -77,5 +82,4 @@ public class ElectricNullifier : Enemy //will be nullifying nearby towers for x 
             }
         }
     }
-
 }

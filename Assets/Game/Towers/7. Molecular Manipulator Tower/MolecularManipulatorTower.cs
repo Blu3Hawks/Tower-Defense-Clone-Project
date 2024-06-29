@@ -17,7 +17,7 @@ public class MolecularManipulatorTower : Tower
             Enemy enemyInRange = collider.GetComponent<Enemy>();
             if (enemyInRange != null)
             {
-               if(enemyFreezeCoroutines.ContainsKey(enemyInRange))
+                if (enemyFreezeCoroutines.ContainsKey(enemyInRange))
                 {
                     StopCoroutine(enemyFreezeCoroutines[enemyInRange]);
                     enemyFreezeCoroutines.Remove(enemyInRange);
@@ -34,18 +34,18 @@ public class MolecularManipulatorTower : Tower
 
         while (duration > 0)
         {
-            if(enemy == null)
+            if (enemy == null)
             {
                 yield break;
             }
             yield return null;
             duration -= Time.deltaTime;
         }
-        if(enemy != null)
+        if (enemy != null)
         {
             enemy.navMeshAgent.speed = initialSpeed;
         }
-        if(enemyFreezeCoroutines.ContainsKey(enemy) )
+        if (enemyFreezeCoroutines.ContainsKey(enemy))
         {
             enemyFreezeCoroutines.Remove(enemy);
         }

@@ -97,7 +97,7 @@ public class Tower : MonoBehaviour
         {
             towerWeapon.LookAt(closestTarget.transform);
             float targetDistance = Vector3.Distance(transform.position, closestTarget.transform.position);
-            if (closestTarget != null && targetDistance < range)
+            if (closestTarget != null && targetDistance < range && towerType != TowerTypes.BlackHoleEmitter16)
             {
                 Attacking();
             }
