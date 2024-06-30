@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BlackHole : MonoBehaviour
+public class BlackHole : MonoBehaviour //things to fix - make sure if enemies are on unwalkable path - to make them get back on the path and walk again
+                                       // check the bug in line 38 - run a test to see
 {
     public float pullStrength;
     public float scalingFactor;
@@ -28,9 +29,34 @@ public class BlackHole : MonoBehaviour
     {
         transform.Translate(initialDirection * Time.deltaTime * speed, Space.World);
 
-        foreach (Enemy enemy in enemiesInPullRadius)
+        CheckForEnemies();
+    }
+
+    private void CheckForEnemies()
+    {
+        List<Enemy> enemiesToRemove = new List<Enemy>();
+
+        for (int i = 0; i < enemiesInPullRadius.Count; i++)
         {
-            PullEnemiesInRange(enemy);
+            Enemy enemy = enemiesInPullRadius[i];
+
+            if (enemy != null)
+            {
+                PullEnemiesInRange(enemy);
+            }
+            else
+            {
+                enemiesToRemove.Add(enemy);
+            }
+
+        }
+
+
+
+
+        foreach (Enemy enemy in enemiesToRemove)
+        {
+            enemiesInPullRadius.Remove(enemy);
         }
     }
 
@@ -60,7 +86,7 @@ public class BlackHole : MonoBehaviour
             NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
             if (agent != null)
             {
-                enemy.navMeshAgent.enabled = false;
+                agent.enabled = false;
             }
             enemiesInPullRadius.Add(enemy);
             Debug.Log(enemy.name + " has been added to the enemies in range list");
@@ -111,10 +137,10 @@ public class BlackHole : MonoBehaviour
             pullStrength *= (1f - decreasedBlackHoleSize);
             destructionRadius *= (1f - decreasedBlackHoleSize);
         }
-        if (amountOfEnemiesToDestroy <= 0)
+        else
         {
             Debug.Log("This black hole as eaten enough");
-            ClearEnemyList(); 
+            ClearEnemyList();
             Destroy(this.gameObject);
         }
     }
@@ -123,7 +149,16 @@ public class BlackHole : MonoBehaviour
     {
         foreach (Enemy enemy in enemiesInPullRadius)
         {
-            enemy.navMeshAgent.enabled = true;
+            if (enemy != null && enemy.navMeshAgent != null && !enemy.navMeshAgent.enabled)
+            {
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(enemy.transform.position, out hit, 1f, NavMesh.AllAreas))
+                {
+                    enemy.transform.position = hit.position;
+                    enemy.navMeshAgent.enabled = true;
+
+                }
+            }
         }
         enemiesInPullRadius.Clear();
     }
