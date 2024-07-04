@@ -163,6 +163,14 @@ public class BlackHole : MonoBehaviour //things to fix - make sure if enemies ar
         enemiesInPullRadius.Clear();
     }
 
+    private void OnDestroy()
+    {
+        foreach (Enemy enemy in enemiesInPullRadius)
+        {
+            enemy.navMeshAgent.enabled = true;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

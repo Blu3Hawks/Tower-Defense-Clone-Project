@@ -31,6 +31,8 @@ public class Tower : MonoBehaviour
     //tower types
     [Header("Tower Types Variables")]
 
+    [Header("Generator Protection")]
+    public bool generatorProtected;
     [Header("19. check")]
     public float hyperElectricBuffed = 0f;
 

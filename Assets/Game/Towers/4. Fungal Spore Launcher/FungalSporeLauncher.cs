@@ -40,7 +40,7 @@ public class FungalSporeLauncher : Tower
     {
         if (enemy.towersWithSlowEffect.Find(selectedTower => selectedTower.GetInstanceID() == GetInstanceID()) == null)
         {
-            if(enemy.totalCurrentSlowPercent < enemy.maxSlowSpeedPercent && enemy.currentSlowEffectsAmount < enemy.maxSlowEffectsAmount)
+            if (enemy.totalCurrentSlowPercent < enemy.maxSlowSpeedPercent && enemy.currentSlowEffectsAmount < enemy.maxSlowEffectsAmount)
             {
                 enemy.currentSlowEffectsAmount++;
                 enemy.totalCurrentSlowPercent += slowEffect;
@@ -53,7 +53,7 @@ public class FungalSporeLauncher : Tower
             StartCoroutine(ResettingSlow(enemy));
         }
         //calculating the slow - gives us the correct value for totalCurrentSlowPercent
-        if(enemy.totalCurrentSlowPercent >= enemy.maxSlowSpeedPercent)
+        if (enemy.totalCurrentSlowPercent >= enemy.maxSlowSpeedPercent)
         {
             enemy.totalCurrentSlowPercent = enemy.maxSlowSpeedPercent;
         }

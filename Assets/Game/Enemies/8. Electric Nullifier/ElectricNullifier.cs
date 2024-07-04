@@ -51,11 +51,11 @@ public class ElectricNullifier : Enemy //will be nullifying nearby towers for x 
         StartCoroutine(ShuttingDownNearbyTowers());
     }
 
-    private IEnumerator ShuttingDownNearbyTowers()
+    private IEnumerator ShuttingDownNearbyTowers() 
     {
         foreach (Tower tower in towersInRange)
         {
-            if (tower != null)
+            if (tower != null && !tower.generatorProtected)
             {
                 tower.enabled = false;
             }
