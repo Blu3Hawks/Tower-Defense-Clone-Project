@@ -22,7 +22,7 @@ public class Resources : MonoBehaviour
     public int CurrentGems { get { return currentGems; } }
 
 
-    private void Awake() 
+    private void Awake()
     {
         currentHealth = startingHealth;
         currentGold = startingGold;
@@ -63,13 +63,13 @@ public class Resources : MonoBehaviour
         }
     }
 
-    void ReloadScene()
+    private void ReloadScene()
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
     }
 
-    void UpdateResources()
+    private void UpdateResources()
     {
         displayGems.text = "Gems: " + currentGems;
         displayGold.text = "Gold: " + currentGold;

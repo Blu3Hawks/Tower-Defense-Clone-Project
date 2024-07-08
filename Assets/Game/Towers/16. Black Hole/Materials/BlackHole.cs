@@ -48,11 +48,7 @@ public class BlackHole : MonoBehaviour //things to fix - make sure if enemies ar
             {
                 enemiesToRemove.Add(enemy);
             }
-
         }
-
-
-
 
         foreach (Enemy enemy in enemiesToRemove)
         {
