@@ -29,8 +29,6 @@ public class HyperElectricTower : Tower
                 {
                     towersInRange.Add(tower);
                     ApplyBuffs();
-                    tower.hyperElectricBuffed++;
-
                 }
             }
         }
@@ -41,10 +39,7 @@ public class HyperElectricTower : Tower
     {
         foreach (Tower tower in towersInRange)
         {
-            if (tower.hyperElectricBuffed <= 0f)
-            {
-                EnableTowerBuffs(tower);
-            }
+            EnableTowerBuffs(tower);
         }
     }
     private void EnableTowerBuffs(Tower tower) //might change it later idk about the name sounds weird to me
@@ -68,22 +63,9 @@ public class HyperElectricTower : Tower
     private void OnDestroyingTower()
     {
         // taking every tower in towersInRange and giving a value of its index - like a reference?
-        for (int i = towersInRange.Count - 1; i >= 0; i--)
+        foreach (Tower tower in towersInRange)
         {
-            Tower tower = towersInRange[i];
-            tower.hyperElectricBuffed--; 
-
-            if (tower.hyperElectricBuffed <= 0f)
-            {
-                DisableTowerBuffs(tower);
-                Debug.Log("Debuffed towers");
-                tower.hyperElectricBuffed = 0f;
-            }
-            else
-            {
-                Debug.Log("Not just yet");
-                Debug.Log(tower.hyperElectricBuffed);
-            }
+            DisableTowerBuffs(tower);
         }
         towersInRange.Clear();
     }

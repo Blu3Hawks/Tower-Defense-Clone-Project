@@ -58,10 +58,13 @@ public class RepatchedMothership : Enemy
         List<Enemy> enemiesToRemove = new List<Enemy>();
         foreach (Enemy enemy in nearbyEnemies)
         {
-            float distanceFromEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceFromEnemy > rangeOfEnemies)
+            if (enemy != null)
             {
-                enemiesToRemove.Add(enemy);
+                float distanceFromEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceFromEnemy > rangeOfEnemies)
+                {
+                    enemiesToRemove.Add(enemy);
+                }
             }
         }
 

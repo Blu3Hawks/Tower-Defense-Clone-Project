@@ -33,8 +33,6 @@ public class Tower : MonoBehaviour
 
     [Header("Generator Protection")]
     public bool generatorProtected;
-    [Header("19. check")]
-    public float hyperElectricBuffed = 0f;
 
     [Header("20. check")]
     public float plasmaSurgeResonator = 0f;
