@@ -10,12 +10,14 @@ public class PhantomDuster : Enemy //an enemy that’s coating themselves in an in
     [SerializeField] private float invisibleTimer;
     [SerializeField] private float visibleTimer;
     [SerializeField] private float transitionDuration = 0.4f;
+    public bool isInvisible;
 
     protected override void Start()
     {
         base.Start();
         rend = GetComponentInChildren<Renderer>();
         rend.material.color = visibleMaterial.color;
+        isInvisible = false;
         if (rend == null)
         {
             Debug.LogError("Renderer component not found on the child object.");
@@ -37,6 +39,7 @@ public class PhantomDuster : Enemy //an enemy that’s coating themselves in an in
         }
 
         rend.material.color = endColor; //after the loop we make sure it's fully colored as the end color
+        isInvisible = true;
         yield return new WaitForSeconds(invisibleTimer);
         StartCoroutine(LerpColorVisible(visibleMaterial.color, transitionDuration));
     }
@@ -54,6 +57,7 @@ public class PhantomDuster : Enemy //an enemy that’s coating themselves in an in
         }
 
         rend.material.color = endColor; //after the loop we make sure it's fully colored as the end color
+        isInvisible = false;
         yield return new WaitForSeconds(visibleTimer);
         StartCoroutine(LerpColorInvisible(invisibleMaterial.color, transitionDuration));
 

@@ -97,6 +97,13 @@ public class Tower : MonoBehaviour
     {
         if (closestTarget != null)
         {
+            PhantomDuster phantomDuster = closestTarget as PhantomDuster;
+            if (phantomDuster != null && phantomDuster.isInvisible)
+            {
+
+                closestTarget = null;
+                return;
+            }
             towerWeapon.LookAt(closestTarget.transform);
             float targetDistance = Vector3.Distance(transform.position, closestTarget.transform.position);
             if (closestTarget != null && targetDistance < range && towerType != TowerTypes.BlackHoleEmitter16)

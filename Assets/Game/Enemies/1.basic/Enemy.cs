@@ -18,8 +18,9 @@ public class Enemy : MonoBehaviour // the very first and basic enemy script
     [SerializeField] public float armor;
 
     [Header("Rewards")]
-    [SerializeField] int goldReward;
-    [SerializeField] int gemReward = 2;
+    public int goldReward;
+    public int gemReward;
+    public bool decreasedRewards = false;
 
     Resources resources;
 
