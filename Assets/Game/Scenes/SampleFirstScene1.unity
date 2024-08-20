@@ -5027,6 +5027,16 @@ MonoBehaviour:
       amountOfEnemies: 4
       spawnTimer: 1
       timeBetweenSpawns: 0
+    - enemyPrefab: {fileID: 9017774602777759889, guid: 61f92c6dca6b2804a832fb0e1c383659, type: 3}
+      amountOfEnemies: 2
+      spawnTimer: 1
+      timeBetweenSpawns: 0
+    timeBetweenWaves: 0
+  - waves:
+    - enemyPrefab: {fileID: 9017774602777759889, guid: 61f92c6dca6b2804a832fb0e1c383659, type: 3}
+      amountOfEnemies: 2
+      spawnTimer: 1
+      timeBetweenSpawns: 0
     timeBetweenWaves: 0
 --- !u!1 &1466760798
 GameObject:

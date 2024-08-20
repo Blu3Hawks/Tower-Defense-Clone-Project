@@ -9,7 +9,7 @@ public class SingleSpawn
     public GameObject enemyPrefab;
     public int amountOfEnemies;
     public float spawnTimer;
-    [Header("")]
+    [Space]
     public float timeBetweenSpawns;
 }
 
@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnLevel()
     {
-        while(currentWave < configurations.Count)
+        while (currentWave < configurations.Count)
         {
             yield return StartCoroutine(SpawnWave(configurations[currentWave]));
             yield return new WaitForSeconds(configurations[currentWave].timeBetweenWaves);
@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnWave(WaveConfiguration waveConfig)
     {
-        foreach(SingleSpawn singleSpawn in waveConfig.waves)
+        foreach (SingleSpawn singleSpawn in waveConfig.waves)
         {
             yield return StartCoroutine(SingleSpawn(singleSpawn));
             yield return new WaitForSeconds(singleSpawn.timeBetweenSpawns);
@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SingleSpawn(SingleSpawn singleSpawn)
     {
-        for(int i = 0; i < singleSpawn.amountOfEnemies;  i++)
+        for (int i = 0; i < singleSpawn.amountOfEnemies; i++)
         {
             Instantiate(singleSpawn.enemyPrefab, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(singleSpawn.spawnTimer);

@@ -12,10 +12,10 @@ public class Enemy : MonoBehaviour // the very first and basic enemy script
     public float currentSpeed;
 
     [Header("Health Attributes")]
-    [SerializeField] public float maxHealth = 6;
-    [SerializeField] public float currentHealth;
+    public float maxHealth = 6;
+    public float currentHealth;
     public int healthPenalty = 1;
-    [SerializeField] public float armor;
+    public float armor;
 
     [Header("Rewards")]
     public int goldReward;
