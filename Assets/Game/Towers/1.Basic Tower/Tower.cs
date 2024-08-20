@@ -98,7 +98,6 @@ public class Tower : MonoBehaviour
             PhantomDuster phantomDuster = closestTarget as PhantomDuster;
             if (phantomDuster != null && phantomDuster.isInvisible)
             {
-
                 closestTarget = null;
                 return;
             }
